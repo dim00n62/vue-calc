@@ -1,8 +1,8 @@
 <template>
   <div class="calculator">
     <Header/>
-    <Display message="123"/>
-    <Keyboard/>
+    <Display :message="calc.displayValue"/>
+    <Keyboard @click="handleKeyboardClick"/>
   </div>
 </template>
 
@@ -10,6 +10,7 @@
 import Display from './Display.vue';
 import Keyboard from './Keyboard.vue';
 import Header from './Header.vue';
+import Calculator from '../services/calculator.ts';
 export default {
   name: 'Calculator',
   components: {
@@ -17,7 +18,14 @@ export default {
     Keyboard,
     Header
   },
-  props: {}
+  data: ()=>({
+    calc: new Calculator()
+  }),
+  methods: {
+    handleKeyboardClick({value, id}) {
+      this.calc.handleButton(value, id);
+    }
+  }
 }
 </script>
 

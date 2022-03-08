@@ -5,6 +5,7 @@
         v-for="(key) in keys"
         v-bind="key"
         :key="key.id"
+        @click="()=>this.handleClick(key)"
       />
     </template>
   </div>
@@ -23,6 +24,11 @@ export default {
   }),
   props: {
     message: String
+  },
+  methods: {
+    handleClick({label, id}) {
+      this.$emit('click', {value: label, id});
+    }
   }
 }
 </script>

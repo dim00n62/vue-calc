@@ -17,10 +17,10 @@ export default {
     disabled: Boolean
   },
   methods: {
-      getClass(){
+    getClass(){
         const mods = this.modifiers.reduce((acc, mod)=>({...acc, [`key--${mod}`]: true}), {});
         return Object.assign({key: true}, mods);
-      }
+    }
   }
 }
 </script>
