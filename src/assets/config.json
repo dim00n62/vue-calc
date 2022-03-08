@@ -1,0 +1,95 @@
+[
+    [
+        {
+            "label": "AC",
+            "id": "ac"
+        },
+        {
+            "label": "+/-",
+            "id": "plusMinus"
+        },
+        {
+            "label": "%",
+            "id": "percent",
+            "disabled": true
+        },
+        {
+            "label": "÷",
+            "id": "divide",
+            "modifiers": ["orange"]
+        }
+    ],
+    [
+        {
+            "label": "7",
+            "id": "seven"
+        },
+        {
+            "label": "8",
+            "id": "eight"
+        },
+        {
+            "label": "9",
+            "id": "nine"
+        },
+        {
+            "label": "x",
+            "id": "multiply",
+            "modifiers": ["orange"]
+        }
+    ],
+    [
+        {
+            "label": "4",
+            "id": "four"
+        },
+        {
+            "label": "5",
+            "id": "five"
+        },
+        {
+            "label": "6",
+            "id": "six"
+        },
+        {
+            "label": "-",
+            "id": "minus",
+            "modifiers": ["orange"]
+        }
+    ],
+    [
+        {
+            "label": "1",
+            "id": "one"
+        },
+        {
+            "label": "2",
+            "id": "two"
+        },
+        {
+            "label": "3",
+            "id": "three"
+        },
+        {
+            "label": "+",
+            "id": "plus",
+            "modifiers": ["orange"]
+        }
+    ],
+    [
+        {
+            "label": "0",
+            "id": "zero",
+            "modifiers": ["bottom-left"]
+        },
+        {
+            "label": ",",
+            "id": "comma"
+        },
+        {
+            "label": "=",
+            "id": "result",
+            "modifiers": ["orange", "bottom-right"]
+        }
+    ]
+]
