@@ -16,10 +16,7 @@ export default class Calculator {
     public handleKeydown(value: string, id: string|Operand): void {
         const type = this.getKeyType(id);
         if (type==='number') {
-            const newValue = this.currentOperand && this.arguments.length===1
-                ? value
-                : this.displayValue+value;
-            this.updateDisplayValue(newValue);
+            this.updateDisplayValue(value);
             this.updateArguments(this.toNumber(this.displayValue));
         } else if (type==='reset')
             this.reset();
@@ -32,7 +29,7 @@ export default class Calculator {
         }
     }
     private reset(): void {
-        this.displayValue = '0';
+        this.updateDisplayValue('0', true);
         this.arguments = [];
         this.currentOperand = null;
         this.currentHandler = null;
@@ -42,21 +39,27 @@ export default class Calculator {
             return;
         const handler = this.currentHandler as Handler;
         const result = handler(this.arguments[0], this.arguments[1]);
-        this.displayValue = this.toString(result);
+        this.updateDisplayValue(this.toString(result), true);
         this.arguments = [result];
     }
     private updateArguments(value: number) {
+        if (isNaN(value))
+            return;
         if (!this.arguments.length || !this.currentOperand)
             return this.arguments = [value];
         else if (this.arguments.length > 0)
             return this.arguments[1] = value;
     }
-    private updateDisplayValue(value: string) {
-        this.displayValue = this.normalizeValue(value);
+    private updateDisplayValue(update: string, replace?: boolean) {
+        const newValue = (this.currentOperand && this.arguments.length===1 || replace)
+            ? update
+            : this.displayValue + update;
+        this.displayValue = this.normalizeValue(newValue);
     }
     private normalizeValue(value: string): string {
         let newValue = value.replace(/0(\d.*$)/, '$1');
-        newValue = newValue.replace(/^(\d+(,\d*)?).*/, '$1');
+        newValue = newValue.replace(/^(\d+(,\d*)?(e[+|-]\d+)?).*/, '$1');
+        newValue = newValue.replace(/^,/, '0,');
         return newValue;
     }
     private toNumber(value: string): number {
@@ -66,7 +69,6 @@ export default class Calculator {
         return String(value).replace(/\./, ',');
     }
     private getKeyType(id: string): ButtonType {
-        console.log(id)
         if (['plusMinus', 'percent', 'divide', 'multiply', 'minus', 'plus'].includes(id))
             return 'operand';
         else if (['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'zero', 'comma'].includes(id))

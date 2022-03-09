@@ -1,9 +1,9 @@
 <template>
-  <div class="calculator">
-    <Header/>
-    <Display :message="calc.displayValue"/>
-    <Keyboard @key-click="handleKeyboardClick"/>
-  </div>
+    <div class="calculator">
+        <Header/>
+        <Display :message="calc.displayValue"/>
+        <Keyboard @key-click="handleKeyboardClick"/>
+    </div>
 </template>
 
 <script>
@@ -12,31 +12,31 @@ import Keyboard from './Keyboard.vue';
 import Header from './Header.vue';
 import Calculator from '../services/calculator.ts';
 export default {
-  name: 'Calculator',
-  components: {
-    Display,
-    Keyboard,
-    Header
-  },
-  data: ()=>({
-    calc: new Calculator()
-  }),
-  methods: {
-    handleKeyboardClick({value, id}) {
-      this.calc.handleKeydown(value, id);
+    name: 'Calculator',
+    components: {
+        Display,
+        Keyboard,
+        Header
+    },
+    data: ()=>({
+        calc: new Calculator()
+    }),
+    methods: {
+        handleKeyboardClick({value, id}) {
+            this.calc.handleKeydown(value, id);
+        }
     }
-  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .calculator {
-  height: 644px;
-  width: 468px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-  overflow: hidden;
+    height: 644px;
+    width: 468px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
 }
 </style>
