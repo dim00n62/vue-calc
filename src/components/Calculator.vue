@@ -2,7 +2,7 @@
   <div class="calculator">
     <Header/>
     <Display :message="calc.displayValue"/>
-    <Keyboard @click="handleKeyboardClick"/>
+    <Keyboard @key-click="handleKeyboardClick"/>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   }),
   methods: {
     handleKeyboardClick({value, id}) {
-      this.calc.handleButton(value, id);
+      this.calc.handleKeydown(value, id);
     }
   }
 }

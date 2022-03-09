@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     handleClick({label, id}) {
-      this.$emit('click', {value: label, id});
+      this.$emit('key-click', {value: label, id});
     }
   }
 }
