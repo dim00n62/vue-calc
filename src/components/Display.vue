@@ -1,6 +1,6 @@
 <template>
     <div class="display" ref="display" :style="{fontSize: fontSize+'px'}">
-        <span :style="textStyles" ref="text">{{message}}</span>
+        <span class="display_text" :style="textStyles" ref="text">{{message}}</span>
     </div>
 </template>
 
@@ -56,5 +56,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: flex-end
+}
+.display_text {
+    white-space: nowrap;
 }
 </style>

@@ -6,22 +6,22 @@
 
 <script>
 export default {
-  name: 'Key',
-  props: {
-    label: String,
-    id: String,
-    modifiers: {
-        type: Array,
-        default: ()=>([])
+    name: 'Key',
+    props: {
+        label: String,
+        id: String,
+        modifiers: {
+            type: Array,
+            default: ()=>([])
+        },
+        disabled: Boolean
     },
-    disabled: Boolean
-  },
-  methods: {
-    getClass(){
-        const mods = this.modifiers.reduce((acc, mod)=>({...acc, [`key--${mod}`]: true}), {});
-        return Object.assign({key: true}, mods);
+    methods: {
+        getClass(){
+            const mods = this.modifiers.reduce((acc, mod)=>({...acc, [`key--${mod}`]: true}), {});
+            return Object.assign({key: true}, mods);
+        }
     }
-  }
 }
 </script>
 
@@ -36,7 +36,7 @@ export default {
     background-clip: padding-box;
     cursor: pointer;
 }
-.key:focus, .key:hover {
+.key:hover {
     opacity: .9;
 }
 .key:active {
