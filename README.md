@@ -1,5 +1,5 @@
 # vue-calc
-See [Demo](https://dim00n62.github.io/vue-calc/)
+See [Demo](https://dim00n62.github.io/vue-calc/dist/index.html)
 
 ## Description
 What was used to implement this project: Vue, Jest. No extra packages needed because of light mvp.
