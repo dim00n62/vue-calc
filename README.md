@@ -1,6 +1,4 @@
 # vue-calc
-
-## Description
 See [Demo](https://dim00n62.github.io/vue-calc/)
 
 ## Description
