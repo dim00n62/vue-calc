@@ -20,7 +20,7 @@ npm install
 ```
 ## Run tests
 ```
-npm install
+npm run test
 ```
 
 ### Compiles and hot-reloads for development
